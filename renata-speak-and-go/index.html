@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speak &amp; Go — Fale inglês de verdade em qualquer lugar do mundo</title>
+<meta name="description" content="O curso de inglês para viagens da Teacher Renata Bettarello. 10 módulos práticos, 100% online, no seu ritmo. Conquiste a fluência para viajar com confiança.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+ul { list-style: none; }
+
+/* ============ TOKENS ============ */
+:root {
+  --ink: #032F6B;
+  --ink-soft: #3C5A82;
+  --ink-faint: #7186A3;
+  --sky: #50C0FF;
+  --sky-deep: #0B72BE;
+  --sky-pale: #E4F4FF;
+  --red: #E31C2F;
+  --red-deep: #B8121F;
+  --paper: #FBF7EE;
+  --paper-dim: #F3EDE0;
+  --white: #FFFFFF;
+  --gold: #C79A4B;
+
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  --container: 1180px;
+  --radius: 22px;
+  --radius-sm: 12px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.eyebrow::before { content: ''; width: 18px; height: 1.5px; background: var(--red); display: inline-block; }
+
+.section { padding: 96px 0; position: relative; }
+@media (max-width: 720px) { .section { padding: 64px 0; } }
+
+.section-head { max-width: 640px; margin-bottom: 52px; }
+.section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 16px; }
+.section-head p { color: var(--ink-soft); font-size: 17px; max-width: 560px; }
+.section-head.center p { margin-left: auto; margin-right: auto; }
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15.5px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  box-shadow: 0 10px 24px -8px rgba(227, 28, 47, 0.55);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -8px rgba(227, 28, 47, 0.65); background: var(--red-deep); }
+.btn-ghost-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.55);
+}
+.btn-ghost-light:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+.btn-whats {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn-whats:hover { background: #052048; transform: translateY(-2px); }
+.btn-whats svg { flex-shrink: 0; }
+.btn-block { width: 100%; }
+
+/* ============ HEADER ============ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(251, 247, 238, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(3, 47, 107, 0.08);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { height: 42px; width: auto; }
+.header-cta { display: flex; align-items: center; gap: 12px; }
+.header-cta .btn { padding: 12px 20px; font-size: 14px; }
+@media (max-width: 560px) {
+  .brand img { height: 34px; }
+  .header-cta .btn span.long { display: none; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  background: radial-gradient(ellipse 120% 100% at 50% 0%, #0B4A8C 0%, var(--ink) 55%, #021B40 100%);
+  color: var(--white);
+  padding: 72px 0 120px;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(80,192,255,0.25), transparent 40%),
+    radial-gradient(circle at 88% 75%, rgba(80,192,255,0.18), transparent 45%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 940px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+.hero-copy .eyebrow { color: var(--sky); }
+.hero-copy .eyebrow::before { background: var(--sky); }
+.hero-copy h1 {
+  font-size: clamp(34px, 5.2vw, 58px);
+  color: var(--white);
+}
+.hero-copy h1 em {
+  font-style: normal;
+  color: var(--sky);
+}
+.hero-copy p.lede {
+  margin-top: 22px;
+  font-size: 18px;
+  color: rgba(255,255,255,0.82);
+  max-width: 520px;
+}
+.hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+.trust-strip {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 28px 40px;
+}
+@media (max-width: 640px) { .trust-strip { grid-template-columns: repeat(2, 1fr); } }
+.trust-item .num { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--sky); display: block; }
+.trust-item .label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); }
+
+/* ---- Boarding pass card ---- */
+.pass {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 20px;
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.5);
+  display: grid;
+  grid-template-columns: 1fr 118px;
+  overflow: visible;
+  transform: rotate(1.5deg);
+}
+.pass-main { padding: 30px 26px; position: relative; }
+.pass-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 22px; }
+.pass-brand img { height: 26px; }
+.pass-brand span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-faint); }
+.pass-route { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.pass-route .city { font-family: var(--font-display); font-weight: 700; font-size: 22px; }
+.pass-route .city small { display: block; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-faint); font-weight: 400; letter-spacing: 0.06em; margin-top: 2px; }
+.pass-route .plane-track { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, var(--ink-faint) 0 6px, transparent 6px 12px); position: relative; }
+.pass-route .plane-track svg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: var(--red); }
+.pass-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 12px; }
+.pass-fields .field .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em; color: var(--ink-faint); text-transform: uppercase; }
+.pass-fields .field .v { font-family: var(--font-display); font-weight: 600; font-size: 15px; margin-top: 3px; }
+.pass-photo {
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 22px 0 4px;
+  aspect-ratio: 16/10;
+  background: var(--ink);
+}
+.pass-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+.pass-stub {
+  background: var(--ink);
+  color: var(--white);
+  padding: 26px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.pass-stub .vert {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--sky);
+  font-weight: 700;
+}
+.pass-stub .barcode {
+  width: 20px;
+  height: 90px;
+  background: repeating-linear-gradient(90deg, var(--white) 0 2px, transparent 2px 4px, var(--white) 4px 5px, transparent 5px 8px);
+  opacity: 0.85;
+}
+.pass-perforation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 118px;
+  width: 0;
+  border-left: 2px dashed rgba(3,47,107,0.22);
+}
+.pass-perforation::before, .pass-perforation::after {
+  content: '';
+  position: absolute;
+  width: 22px; height: 22px;
+  background: var(--ink);
+  border-radius: 50%;
+  left: -11px;
+}
+.pass-perforation::before { top: -11px; }
+.pass-perforation::after { bottom: -11px; }
+@media (max-width: 480px) {
+  .pass { transform: none; grid-template-columns: 1fr 84px; }
+  .pass-fields { grid-template-columns: repeat(2, 1fr); }
+  .pass-perforation { right: 84px; }
+}
+
+/* ============ WELCOME VIDEO ============ */
+.welcome { background: var(--white); }
+.video-shell {
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--ink);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 30px 70px -24px rgba(3,47,107,0.45);
+}
+.video-shell .video-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px 14px;
+}
+.video-shell .video-topbar span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+.video-shell .video-topbar .dots { display: flex; gap: 6px; }
+.video-shell .video-topbar .dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.25); display: block; }
+.video-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+.video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ============ TEACHER BIO ============ */
+.teacher-bio { background: var(--paper); }
+.teacher-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 900px) { .teacher-grid { grid-template-columns: 1fr; gap: 36px; } }
+.teacher-grid .photo-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--ink);
+  box-shadow: 0 30px 60px -20px rgba(3,47,107,0.35);
+}
+.teacher-grid .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.teacher-copy p { color: var(--ink-soft); font-size: 16.5px; margin-bottom: 16px; }
+.teacher-copy blockquote {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.35;
+  color: var(--ink);
+  border-left: 3px solid var(--red);
+  padding-left: 20px;
+  margin: 24px 0;
+}
+.credential-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; }
+.credential-chip {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid rgba(3,47,107,0.15);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* ============ METHOD / DIFFERENTIATORS ============ */
+.method { background: var(--white); }
+.diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 860px) { .diff-grid { grid-template-columns: 1fr; } }
+.diff-card {
+  border-radius: var(--radius-sm);
+  padding: 30px 26px;
+  color: var(--white);
+}
+.diff-card h3 { font-size: 19px; margin-bottom: 10px; }
+.diff-card p { font-size: 14.5px; opacity: 0.92; }
+.diff-card.c1 { background: var(--ink); }
+.diff-card.c2 { background: var(--red); }
+.diff-card.c3 { background: var(--sky-deep); }
+.diff-card .num { font-family: var(--font-mono); font-size: 12px; opacity: 0.65; margin-bottom: 14px; display: block; }
+
+/* ============ ITINERARY / STAMPS ============ */
+.itinerary { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+.itinerary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 85% 10%, rgba(80,192,255,0.18), transparent 45%);
+}
+.itinerary .section-head .eyebrow { color: var(--sky); }
+.itinerary .section-head .eyebrow::before { background: var(--sky); }
+.itinerary .section-head h2 { color: var(--white); }
+.itinerary .section-head p { color: rgba(255,255,255,0.72); }
+
+.stamp-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+@media (max-width: 900px) { .stamp-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .stamp-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+
+.stamp {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px dashed rgba(80,192,255,0.4);
+  border-radius: 16px;
+  padding: 22px 14px;
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.stamp:hover { transform: translateY(-4px) rotate(-1deg); background: rgba(80,192,255,0.08); border-color: var(--sky); }
+.stamp .ring {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sky);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  color: var(--sky);
+}
+.stamp .idx { font-family: var(--font-mono); font-size: 10.5px; color: var(--sky); letter-spacing: 0.08em; display: block; margin-bottom: 6px; }
+.stamp h4 { font-family: var(--font-display); font-size: 14.5px; font-weight: 600; line-height: 1.3; }
+
+/* ============ BENEFITS STRIP ============ */
+.benefits { background: linear-gradient(180deg, var(--sky-pale), var(--paper)); }
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+@media (max-width: 860px) { .benefits-grid { grid-template-columns: 1fr; } }
+.benefit { text-align: left; }
+.benefit .glyph {
+  width: 54px; height: 54px;
+  border-radius: 14px;
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sky-deep);
+  box-shadow: 0 10px 24px -12px rgba(3,47,107,0.25);
+  margin-bottom: 18px;
+}
+.benefit h3 { font-size: 19px; margin-bottom: 8px; }
+.benefit p { color: var(--ink-soft); font-size: 15px; }
+
+/* ============ TESTIMONIALS ============ */
+.postcards { background: var(--white); }
+.postcard-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1040px) { .postcard-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .postcard-grid { grid-template-columns: repeat(2, 1fr); } }
+.postcard {
+  background: var(--paper);
+  border-radius: 16px;
+  padding: 20px 16px 22px;
+  position: relative;
+  box-shadow: 0 14px 30px -18px rgba(3,47,107,0.35);
+  transition: transform 0.2s ease;
+}
+.postcard:nth-child(odd) { transform: rotate(-1.2deg); }
+.postcard:nth-child(even) { transform: rotate(1deg); }
+.postcard:hover { transform: rotate(0deg) translateY(-4px); }
+.postcard .avatar {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.postcard .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.postcard .avatar .mono {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+}
+.postcard .stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+.postcard p.quote { font-size: 13.5px; color: var(--ink-soft); font-style: italic; line-height: 1.5; min-height: 58px; }
+.postcard .name { margin-top: 12px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: var(--red); text-transform: uppercase; }
+.postcard .stamp-corner {
+  position: absolute; top: -10px; right: -6px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sky-deep);
+  color: var(--sky-deep);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  transform: rotate(12deg);
+}
+
+/* ============ PRICING TICKET ============ */
+.pricing { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+.pricing::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 15% 85%, rgba(80,192,255,0.2), transparent 45%); }
+.ticket {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  box-shadow: 0 40px 90px -20px rgba(0,0,0,0.5);
+}
+@media (max-width: 680px) { .ticket { grid-template-columns: 1fr; } }
+.ticket-body { padding: 40px 36px; }
+.ticket-body .tag { display: inline-block; background: var(--red); color: var(--white); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+.ticket-body h3 { font-size: 26px; margin-bottom: 18px; }
+.ticket-body ul { display: grid; gap: 12px; margin-bottom: 8px; }
+.ticket-body ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--ink-soft); }
+.ticket-body ul li svg { flex-shrink: 0; margin-top: 3px; color: var(--sky-deep); }
+.ticket-stub {
+  background: var(--ink);
+  color: var(--white);
+  padding: 36px 26px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  position: relative;
+}
+.ticket-stub-perf {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 0;
+  border-left: 2px dashed rgba(255,255,255,0.25);
+}
+@media (max-width: 680px) {
+  .ticket-stub-perf { top: 0; left: 0; right: 0; bottom: auto; width: auto; height: 0; border-left: none; border-top: 2px dashed rgba(255,255,255,0.25); }
+}
+.ticket-stub .was { font-family: var(--font-mono); font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: line-through; }
+.ticket-stub .price { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--sky); margin: 6px 0 2px; }
+.ticket-stub .install { font-family: var(--font-mono); font-size: 12.5px; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
+.ticket-stub .urgency { font-family: var(--font-mono); font-size: 11px; color: var(--sky); letter-spacing: 0.04em; margin-top: 16px; }
+
+/* ============ FAQ ============ */
+.faq { background: var(--paper); }
+.faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(3,47,107,0.08);
+  overflow: hidden;
+}
+.faq-item summary {
+  list-style: none;
+  padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15.5px;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .plus { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--sky-pale); color: var(--sky-deep); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: transform 0.25s ease; }
+.faq-item[open] summary .plus { transform: rotate(45deg); background: var(--red); color: var(--white); }
+.faq-item .faq-a { padding: 0 24px 22px; color: var(--ink-soft); font-size: 14.5px; max-width: 620px; }
+
+/* ============ FOOTER ============ */
+.site-footer { background: var(--ink); color: rgba(255,255,255,0.82); padding: 56px 0 28px; }
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 40px; }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-brand img { height: 40px; }
+.footer-brand .tag { font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+.footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+.footer-col h5 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--sky); text-transform: uppercase; margin-bottom: 12px; }
+.footer-col a, .footer-col p { display: block; font-size: 14px; color: rgba(255,255,255,0.75); margin-bottom: 8px; }
+.footer-col a:hover { color: var(--sky); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 12.5px; color: rgba(255,255,255,0.5); }
+
+/* ============ FLOATING WHATSAPP ============ */
+.float-whats {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 80;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 12px 28px -6px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+.float-whats:hover { transform: scale(1.08); }
+@media (max-width: 560px) { .float-whats { width: 52px; height: 52px; bottom: 16px; right: 16px; } }
+
+/* ============ REVEAL ============ */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<a href="#conteudo" class="visually-hidden" style="position:absolute; left:-9999px;">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#topo" class="brand" aria-label="Speak & Go — início">
+      <img src="assets/logo.png" alt="Speak & Go, by Renata Bettarello">
+    </a>
+    <div class="header-cta">
+      <a class="btn btn-whats" href="https://wa.me/message/LBCAYCZMLCZON1" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.36-.53.06-1.02.26-3.44-.71-2.9-1.16-4.75-4.09-4.9-4.28-.14-.19-1.17-1.56-1.17-2.98s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.21.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+        <span class="long">Falar no WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Speak &amp; Go · Curso de inglês para viagens</p>
+      <h1>Fale inglês <em>de verdade</em> em qualquer lugar do mundo.</h1>
+      <p class="lede">Chega de adiar aquela viagem por medo de não se comunicar. Em 10 módulos práticos você aprende exatamente o inglês que vai usar no aeroporto, no hotel, no restaurante e no papo com os locais — no seu ritmo, 100% online.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://pay.kiwify.com.br/IBIOUE1" target="_blank" rel="noopener">Garantir minha vaga</a>
+        <a class="btn btn-ghost-light" href="https://wa.me/message/LBCAYCZMLCZON1" target="_blank" rel="noopener">Tirar dúvidas no WhatsApp</a>
+      </div>
+
+      <div class="trust-strip">
+        <div class="trust-item"><span class="num">+2.000</span><span class="label">ALUNOS FLUENTES</span></div>
+        <div class="trust-item"><span class="num">25 ANOS</span><span class="label">DE EXPERIÊNCIA</span></div>
+        <div class="trust-item"><span class="num">10</span><span class="label">MÓDULOS PRÁTICOS</span></div>
+        <div class="trust-item"><span class="num">2 ANOS</span><span class="label">DE ACESSO</span></div>
+      </div>
+    </div>
+
+    <div class="hero-pass-wrap">
+      <div class="pass">
+        <div class="pass-main">
+          <div class="pass-brand">
+            <img src="assets/logo.png" alt="">
+            <span>BOARDING PASS</span>
+          </div>
+          <div class="pass-route">
+            <div class="city">MEDO<small>ORIGEM</small></div>
+            <div class="plane-track">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12l-8-7v4H2v6h12v4z" transform="rotate(0 12 12)"/></svg>
+            </div>
+            <div class="city">FLUÊNCIA<small>DESTINO</small></div>
+          </div>
+          <div class="pass-photo">
+            <img src="assets/teacher-hero.png" alt="Renata Bettarello, professora do Speak & Go">
+          </div>
+          <div class="pass-fields">
+            <div class="field"><div class="k">Passageiro</div><div class="v">Você</div></div>
+            <div class="field"><div class="k">Voo</div><div class="v">SPK&amp;GO</div></div>
+            <div class="field"><div class="k">Embarque</div><div class="v">Agora</div></div>
+          </div>
+        </div>
+        <div class="pass-perforation"></div>
+        <div class="pass-stub">
+          <span class="vert">SPEAK &amp; GO</span>
+          <div class="barcode"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WELCOME VIDEO ============ -->
+<section class="welcome section" id="boas-vindas">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Antes de embarcar</p>
+      <h2>Um recado da Teacher Renata pra você</h2>
+      <p>Assista e veja como é simples e possível conquistar a fluência que você precisa pra explorar o mundo.</p>
+    </div>
+    <div class="video-shell reveal">
+      <div class="video-topbar">
+        <span>Speak &amp; Go · Mensagem de boas-vindas</span>
+        <div class="dots"><i></i><i></i><i></i></div>
+      </div>
+      <div class="video-frame">
+        <video controls playsinline preload="none" poster="assets/welcome-video-poster.jpg">
+          <source src="https://speakandgo.com.br/_assets/video/c43483489e5d8536014fb6f5762c62d8.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHER BIO ============ -->
+<section class="teacher-bio section" id="teacher">
+  <div class="wrap">
+    <div class="teacher-grid reveal">
+      <div class="photo-frame">
+        <img src="assets/teacher-about.jpg" alt="Teacher Renata Bettarello">
+      </div>
+      <div class="teacher-copy">
+        <p class="eyebrow">Conheça a Teacher Renata</p>
+        <h2 style="margin-bottom:20px;">A professora por trás do método</h2>
+        <p>Há mais de 20 anos ensinando com uma paixão verdadeira por transformar vidas através do inglês, a Renata está aqui pra mostrar que aprender pode ser simples, objetivo e incrivelmente eficaz. Sua missão é tornar esse processo leve e transformador.</p>
+        <p>Depois de viver 7 anos nos Estados Unidos, mergulhada no inglês do dia a dia, ela desenvolveu métodos práticos que já capacitaram mais de 2.000 alunos a dominarem o idioma para o dia a dia e para viagens. Formada em Letras, com certificação internacional TEFL pela WESLI — onde também atuou como coordenadora e professora — Renata oferece técnicas personalizadas e materiais autênticos para um aprendizado de verdade.</p>
+        <blockquote>"Acredito profundamente no potencial de cada aluno. O que mais me motiva é o sucesso de quem aprende comigo — com minha didática comprovada, você aprende em menos tempo e com muito mais confiança."</blockquote>
+        <div class="credential-row">
+          <span class="credential-chip">20+ anos de experiência</span>
+          <span class="credential-chip">7 anos nos EUA</span>
+          <span class="credential-chip">Formação em Letras</span>
+          <span class="credential-chip">TEFL · WESLI</span>
+          <span class="credential-chip">+2.000 alunos fluentes</span>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/message/LBCAYCZMLCZON1" target="_blank" rel="noopener">Falar com a Teacher</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="method section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Um método pensado para quem vai viajar — não para quem vai virar professor</h2>
+      <p>Nada de gramática decorada. Você treina exatamente as situações que vai encontrar na próxima viagem, com técnicas de imitação e repetição que grudam.</p>
+    </div>
+
+    <div class="diff-grid reveal">
+      <div class="diff-card c1">
+        <span class="num">01</span>
+        <h3>Comunicação fluente</h3>
+        <p>Desenvolva confiança para se comunicar em qualquer situação de viagem com técnicas de imitação praticadas em todas as aulas.</p>
+      </div>
+      <div class="diff-card c2">
+        <span class="num">02</span>
+        <h3>Conteúdo prático</h3>
+        <p>O inglês que você vai realmente usar: pedir informação, passar pela imigração, fazer compras, pedir comida — sem enrolação.</p>
+      </div>
+      <div class="diff-card c3">
+        <span class="num">03</span>
+        <h3>Método direto e eficaz</h3>
+        <p>Vídeos curtos e objetivos, no seu ritmo. Resultado rápido sem comprometer sua rotina.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ITINERARY / MODULES ============ -->
+<section class="itinerary section" id="modulos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Seu itinerário de aprendizado</p>
+      <h2>10 módulos, uma situação real de viagem em cada carimbo</h2>
+      <p>Do check-in ao papo com os locais — cada módulo é um trecho da sua viagem, pronto pra você embarcar com confiança.</p>
+    </div>
+
+    <div class="stamp-grid reveal">
+      <div class="stamp"><span class="idx">01</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16l20-6-3-8-6 4-7-2-3 3 5 3-3 3z" stroke-linejoin="round"/></svg></div><h4>Aeroporto</h4></div>
+      <div class="stamp"><span class="idx">02</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="16" height="10" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></div><h4>Dentro do avião</h4></div>
+      <div class="stamp"><span class="idx">03</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17h16M5 17V10l2-4h10l2 4v7M6 17v2M18 17v2"/><circle cx="8" cy="19" r="1"/><circle cx="16" cy="19" r="1"/></svg></div><h4>Táxi e transporte</h4></div>
+      <div class="stamp"><span class="idx">04</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20V9l9-5 9 5v11"/><path d="M3 20h18M9 20v-6h6v6"/></svg></div><h4>Hotel</h4></div>
+      <div class="stamp"><span class="idx">05</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3v7a2 2 0 1 1-4 0V3M5 10v11M17 3c-2 0-3 2-3 5s1 4 3 4 3-1 3-4-1-5-3-5Zm0 9v9"/></svg></div><h4>Restaurantes</h4></div>
+      <div class="stamp"><span class="idx">06</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div><h4>Compras</h4></div>
+      <div class="stamp"><span class="idx">07</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg></div><h4>Farmácias e hospitais</h4></div>
+      <div class="stamp"><span class="idx">08</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.4"/><path d="M8 6l1.5-2h5L16 6"/></svg></div><h4>Lugares turísticos</h4></div>
+      <div class="stamp"><span class="idx">09</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="15" r="3"/><path d="M10.5 12.5 18 5l2 2-2 2 1.5 1.5L18 12l-1.5-1.5L14 13"/></svg></div><h4>Alugar um carro</h4></div>
+      <div class="stamp"><span class="idx">10</span><div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a7.5 7.5 0 0 1-11.4 6.4L4 19l1.1-5.4A7.5 7.5 0 1 1 21 11.5Z"/></svg></div><h4>Conversas casuais</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="benefits section">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Liberte-se do medo de falar inglês</p>
+      <h2>O que muda quando você embarca com confiança</h2>
+    </div>
+    <div class="benefits-grid reveal">
+      <div class="benefit">
+        <div class="glyph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12c2-4 6-7 9-7s7 3 9 7c-2 4-6 7-9 7s-7-3-9-7Z"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+        <h3>Desfrute suas viagens</h3>
+        <p>Explore novos lugares, converse com os locais e aproveite cada experiência sem barreiras de idioma.</p>
+      </div>
+      <div class="benefit">
+        <div class="glyph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Construa confiança</h3>
+        <p>Supere o medo de falar e conquiste a autoconfiança para se comunicar em qualquer situação.</p>
+      </div>
+      <div class="benefit">
+        <div class="glyph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.6-9.5-9C1 8.5 2.5 5 6 5c2 0 3.5 1.2 4.5 2.4C11.5 6.2 13 5 15 5c3.5 0 5 3.5 3.5 7-2.5 4.4-9.5 9-9.5 9Z"/></svg></div>
+        <h3>Experimente a independência</h3>
+        <p>Movimente-se com autonomia e segurança, interagindo com moradores locais de verdade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="postcards section" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Cartões-postais dos nossos alunos</p>
+      <h2>Quem já embarcou nessa jornada</h2>
+      <p>Depoimentos reais de quem destravou o inglês com a Teacher Renata.</p>
+    </div>
+
+    <div class="postcard-grid reveal">
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><img src="assets/testimonial-iasmin.jpg" alt="Iasmin, aluna do Speak & Go"></div>
+        <p class="quote">"Tenho 16 anos e estou aqui pra falar sobre como aprender inglês de vida real..."</p>
+        <div class="name">Iasmin</div>
+      </article>
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><img src="assets/testimonial-adriana.jpg" alt="Adriana, aluna do Speak & Go"></div>
+        <p class="quote">"Um agradecimento especial pra minha teacher Renata — indicação da melhor qualidade."</p>
+        <div class="name">Adriana</div>
+      </article>
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><span class="mono">I</span></div>
+        <p class="quote">Do medo de errar a mochilar sozinha pelo mundo — hoje conversa com naturalidade em qualquer viagem.</p>
+        <div class="name">Isabela</div>
+      </article>
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><span class="mono">M</span></div>
+        <p class="quote">"Renata motivated me to study English and do my best."</p>
+        <div class="name">Marisa</div>
+      </article>
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><span class="mono">M</span></div>
+        <p class="quote">Áudio de agradecimento direto de viagem: 5 estrelas pro método que tirou o inglês do papel.</p>
+        <div class="name">Mikael</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing section" id="matricula">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center; color:var(--sky);">
+        <span style="width:18px;height:1.5px;background:var(--sky);display:inline-block;"></span>
+        Sua passagem para a fluência
+      </p>
+      <h2 style="color:var(--white);">Vagas limitadas nesta turma</h2>
+    </div>
+
+    <div class="ticket reveal">
+      <div class="ticket-body">
+        <span class="tag">CURSO COMPLETO</span>
+        <h3>Tudo que você precisa pra embarcar com confiança</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg> Comunidade de alunos com suporte</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg> Materiais de apoio completos</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg> Aula de pronúncia</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg> Exercícios de memorização</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg> Acesso por 2 anos, no seu ritmo</li>
+        </ul>
+      </div>
+      <div class="ticket-stub">
+        <div class="ticket-stub-perf"></div>
+        <span class="was">de R$ 990</span>
+        <span class="price">10x R$82,93</span>
+        <span class="install">ou R$690 à vista</span>
+        <a class="btn btn-primary btn-block" href="https://pay.kiwify.com.br/IBIOUE1" target="_blank" rel="noopener">Garantir minha vaga</a>
+        <span class="urgency">✦ vagas limitadas nesta turma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq section" id="duvidas">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <p class="eyebrow" style="justify-content:center;">Está com dúvidas?</p>
+      <h2>Perguntas frequentes</h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>Posso pagar por Pix ou boleto?<span class="plus">+</span></summary>
+        <div class="faq-a">Sim, aceitamos pagamento via Pix, boleto e cartão de crédito.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso parcelar a compra?<span class="plus">+</span></summary>
+        <div class="faq-a">Sim, o curso pode ser parcelado em até 10x.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Posso baixar as aulas?<span class="plus">+</span></summary>
+        <div class="faq-a">Não, as aulas ficam disponíveis somente na plataforma.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Até quando posso assistir o curso?<span class="plus">+</span></summary>
+        <div class="faq-a">Seu acesso tem validade de 2 anos.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Quantas aulas de conversação eu tenho?<span class="plus">+</span></summary>
+        <div class="faq-a">As aulas de conversação são para os planos Pró e Premium: uma por semana, durante 3 meses.</div>
+      </details>
+      <details class="faq-item">
+        <summary>O curso serve para quem é iniciante?<span class="plus">+</span></summary>
+        <div class="faq-a">Sim, o curso é ideal para alunos iniciantes, nível básico e intermediário.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Vou receber certificado?<span class="plus">+</span></summary>
+        <div class="faq-a">Sim, todos os alunos que completarem os módulos recebem certificado de conclusão.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Speak & Go">
+        <div>
+          <div style="font-family:var(--font-display); font-weight:700;">Speak &amp; Go</div>
+          <div class="tag">Seu passaporte para se comunicar em qualquer lugar do mundo</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Fale com a gente</h5>
+          <a href="https://wa.me/message/LBCAYCZMLCZON1" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/teacherrenatabettarello/" target="_blank" rel="noopener">Instagram @teacherrenatabettarello</a>
+        </div>
+        <div class="footer-col">
+          <h5>O curso</h5>
+          <a href="#teacher">Conheça a Renata</a>
+          <a href="#modulos">Os 10 módulos</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#matricula">Matrícula</a>
+          <a href="#duvidas">Dúvidas frequentes</a>
+        </div>
+        <div class="footer-col">
+          <h5>Formas de pagamento</h5>
+          <p>Pix · Boleto · Cartão em até 10x</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Speak &amp; Go by Renata Bettarello — Curso 100% online.</span>
+      <span>Este site não é afiliado ao Facebook/Meta.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-whats" href="https://wa.me/message/LBCAYCZMLCZON1" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.36-.53.06-1.02.26-3.44-.71-2.9-1.16-4.75-4.09-4.9-4.28-.14-.19-1.17-1.56-1.17-2.98s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.21.72-.84.92-1.13.19-.29.38-.24.64-.14.26.1 1.66.78 1.94.93.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+</a>
+
+<script>
+(function() {
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
