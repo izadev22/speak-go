@@ -79,4 +79,3 @@ O `<video>` da seção "Antes de embarcar" está apontando para o arquivo origin
 ## Origem do conteúdo
 
 Todo o conteúdo (textos, preços, depoimentos, bio da professora, paleta de cores, logo) foi extraído do site real em produção (`speakandgo.com.br`) — nada foi inventado. Consulte o histórico da conversa com a Claude para o levantamento completo caso precise justificar alguma escolha de copy para a cliente.
-
