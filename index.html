@@ -228,7 +228,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 14px;
   overflow: hidden;
   margin: 22px 0 4px;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/5;
   background: var(--ink);
 }
 .pass-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
@@ -434,10 +434,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .postcards { background: var(--white); }
 .postcard-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
-@media (max-width: 1040px) { .postcard-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 640px) { .postcard-grid { grid-template-columns: repeat(2, 1fr); } }
 .postcard {
   background: var(--paper);
@@ -818,14 +817,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
       </article>
       <article class="postcard">
         <div class="stamp-corner">5.0<br>★★★★★</div>
-        <div class="avatar"><img src="assets/testimonial-adriana.jpg" alt="Adriana, aluna do Speak & Go"></div>
+        <div class="avatar"><img src="assets/testimonial-isabela.jpg" alt="Isabela, aluna do Speak & Go"></div>
         <p class="quote">"Um agradecimento especial pra minha teacher Renata — indicação da melhor qualidade."</p>
-        <div class="name">Adriana</div>
-      </article>
-      <article class="postcard">
-        <div class="stamp-corner">5.0<br>★★★★★</div>
-        <div class="avatar"><span class="mono">I</span></div>
-        <p class="quote">Do medo de errar a mochilar sozinha pelo mundo — hoje conversa com naturalidade em qualquer viagem.</p>
         <div class="name">Isabela</div>
       </article>
       <article class="postcard">
@@ -833,6 +826,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
         <div class="avatar"><video controls playsinline preload="none" poster="assets/testimonial-ivete.jpg" style="width:100%;height:100%;object-fit:cover;"><source src="assets/speak-go-IVETE.mp4" type="video/mp4"></video></div>
         <p class="quote">Depoimento em vídeo, gravado ao lado da Teacher Renata.</p>
         <div class="name">Ivete</div>
+      </article>
+      <article class="postcard">
+        <div class="stamp-corner">5.0<br>★★★★★</div>
+        <div class="avatar"><span class="mono">A</span></div>
+        <p class="quote">Depoimento 5 estrelas — mais uma aluna que destravou o inglês com a Teacher Renata.</p>
+        <div class="name">Adriana</div>
       </article>
       <article class="postcard">
         <div class="stamp-corner">5.0<br>★★★★★</div>
