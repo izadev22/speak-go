@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English on Top | Mentoria de fluência com a Teacher Renata</title>
+<meta name="description" content="Mentoria de fluência em inglês com aulas ao vivo e o método da Teacher Renata Bettarello, que guia alunos há 25 anos. Fale inglês sem decorar regras chatas.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14284A;      /* noite no topo */
+    --navy-2:#1E3962;
+    --gold:#B98A2C;      /* o topo */
+    --gold-soft:#E2C27A;
+    --snow:#F4F6F9;
+    --glacier:#D9E3EE;
+    --slate:#4A5A72;
+    --ink:#14284A;
+    --white:#FFFFFF;
+    --display:'Bricolage Grotesque', 'Nunito Sans', sans-serif;
+    --body:'Nunito Sans', system-ui, sans-serif;
+    --wrap:1160px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--snow);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--display);margin:0;line-height:1.08;letter-spacing:-.02em;font-weight:700}
+  h2{font-size:clamp(2rem,4.2vw,3.1rem);max-width:18ch}
+  p{margin:0 0 1em;max-width:62ch}
+
+  /* botões */
+  .btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:999px;font:700 1rem/1 var(--body);text-decoration:none;transition:background .2s,color .2s,box-shadow .2s}
+  .btn-gold{background:var(--gold);color:var(--white)}
+  .btn-gold:hover{background:#9E7422}
+  .btn-line{border:2px solid currentColor;padding:calc(.95em - 2px) calc(1.5em - 2px)}
+  .btn-line:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+  .on-dark .btn-line:hover{background:var(--white);color:var(--navy);border-color:var(--white)}
+  .btn svg{width:1.15em;height:1.15em;flex:none}
+
+  /* topo */
+  .top{position:sticky;top:0;z-index:20;background:rgba(244,246,249,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--glacier)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{height:52px;width:auto}
+  .brand span{font:700 1.05rem/1.1 var(--display);letter-spacing:-.01em}
+  .brand small{display:block;font:400 1.15rem/1 'Allura',cursive;color:var(--gold);letter-spacing:0}
+  .top nav{display:flex;gap:28px;font-weight:600;font-size:.95rem}
+  .top nav a{text-decoration:none;color:var(--slate)}
+  .top nav a:hover{color:var(--navy)}
+  .top .btn{padding:.7em 1.15em;font-size:.92rem}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:64px 0 0}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:end;position:relative;z-index:1}
+  .hero-copy{padding-bottom:96px}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,5.2rem);font-weight:800;letter-spacing:-.035em;line-height:.98;max-width:11ch}
+  .hero .lead{font-size:1.25rem;line-height:1.55;color:var(--slate);margin:28px 0 36px;max-width:34ch}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .peak{position:relative;justify-self:end;width:min(100%,500px)}
+  .peak img{width:100%;aspect-ratio:5/6;object-fit:cover;object-position:50% 12%;
+    clip-path:polygon(0 100%,0 44%,17% 31%,28% 38%,55% 3%,76% 27%,88% 20%,100% 31%,100% 100%)}
+  .bubble{position:absolute;top:-8px;left:60%;background:var(--gold);color:var(--white);font:700 1rem/1 var(--display);padding:.7em 1em;border-radius:18px 18px 18px 4px;white-space:nowrap}
+  .ridge{position:absolute;left:0;bottom:0;width:100%;height:140px;z-index:0}
+  .ridge path{fill:var(--glacier)}
+
+  /* seções */
+  section{padding:112px 0}
+  .intro{background:var(--white)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .intro .big{font:500 clamp(1.35rem,2.3vw,1.75rem)/1.4 var(--display);letter-spacing:-.01em;max-width:28ch;margin-top:28px}
+  .kit{list-style:none;margin:0;padding:0}
+  .kit li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--glacier)}
+  .kit li:last-child{border-bottom:1px solid var(--glacier)}
+  .kit svg{width:32px;height:32px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+  .kit h3{font-size:1.2rem;margin-bottom:4px;letter-spacing:-.01em}
+  .kit p{margin:0;color:var(--slate);font-size:1rem}
+
+  .wrap.formats{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;width:calc(100% - 48px);max-width:calc(var(--wrap) - 48px);margin:88px auto 0;padding:56px 0 0;border-top:1px solid var(--glacier)}
+  .formats h3{font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-.02em;margin-bottom:16px;max-width:16ch}
+  .formats p{color:var(--slate);margin:0}
+  .modes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .modes li{border-top:3px solid var(--glacier);padding-top:18px}
+  .modes li.on{border-color:var(--gold)}
+  .modes h4{font:700 1.3rem/1.1 var(--display);letter-spacing:-.015em;margin:0 0 8px}
+  .modes p{font-size:1rem}
+
+  /* professora */
+  .teacher .split{grid-template-columns:.9fr 1.1fr;align-items:start}
+  .quote{margin:0;padding:8px 0 8px 32px;border-left:4px solid var(--gold)}
+  .quote p{font:700 clamp(1.9rem,3.4vw,2.8rem)/1.12 var(--display);letter-spacing:-.025em;color:var(--navy);margin:0 0 20px}
+  .quote cite{color:var(--slate);font-weight:600;font-style:normal}
+  .teacher .copy p{color:var(--slate);font-size:1.1rem}
+  .teacher .copy h2{margin-bottom:28px}
+  .sign{font:400 2.6rem/1 'Allura',cursive;color:var(--gold);margin-top:12px}
+  .teacher .ig{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;margin-top:8px}
+
+  /* método */
+  .courses{background:var(--white)}
+  .method .principle{background:var(--white)}
+  .method header{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;margin-bottom:56px}
+  .method header p{color:var(--slate);font-size:1.1rem;margin:0}
+  .principles{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  .principle{grid-column:span 2;background:var(--snow);border-radius:14px;padding:30px 28px 26px}
+  .principle.wide{grid-column:span 3;background:var(--navy);color:var(--white)}
+  .principle.wide p{color:var(--glacier)}
+  .principle h3{font-size:1.45rem;margin-bottom:12px;letter-spacing:-.015em}
+  .principle p{margin:0;color:var(--slate);font-size:1rem}
+
+  /* cursos */
+  .courses h2{margin-bottom:48px}
+  .routes{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto;gap:20px}
+  .route{border:2px solid var(--glacier);border-radius:14px;padding:30px 28px}
+  .route.main{grid-row:span 2;background:var(--navy);border-color:var(--navy);color:var(--white);padding:40px 36px;display:flex;flex-direction:column}
+  .route h3{font-size:1.5rem;letter-spacing:-.02em;margin-bottom:10px}
+  .route.main h3{font-size:clamp(2rem,3.4vw,2.7rem)}
+  .route p{margin:0;color:var(--slate)}
+  .route.main p{color:var(--glacier);font-size:1.1rem}
+  .route.main .lv-range{font:800 1.3rem/1 var(--display);color:var(--gold-soft);margin:0 0 20px}
+  .route .more{margin-top:auto;padding-top:28px;color:var(--gold-soft);font-weight:700}
+  .route .more:hover{color:var(--white)}
+
+  /* Speak & Go: cartão de embarque, nas cores da outra marca */
+  .ticket{--sg-navy:#1B2A41;--sg-red:#E63946;--sg-blue:#2E9BEA;
+    position:relative;display:grid;grid-template-columns:1fr 300px;margin-top:56px;background:var(--white);
+    border:2px solid var(--glacier);border-radius:18px;overflow:hidden}
+  .ticket:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;z-index:2;background:linear-gradient(90deg,var(--sg-red) 50%,var(--sg-blue) 50%)}
+  .ticket-main{display:grid;grid-template-columns:120px 1fr;gap:32px;align-items:center;padding:40px 40px 36px}
+  .sg-logo{width:120px}
+  .ticket h3{font-size:clamp(1.5rem,2.4vw,1.9rem);letter-spacing:-.02em;color:var(--sg-navy);margin-bottom:10px}
+  .ticket p{color:var(--slate);margin:0 0 22px}
+  .btn-sg{background:var(--sg-red);color:var(--white)}
+  .btn-sg:hover{background:#C92E3A}
+  .ticket-stub{position:relative;border-left:2px dashed var(--glacier);display:flex;align-items:flex-end;justify-content:center;background:#EEF5FC}
+  .ticket-stub img{width:100%;max-width:300px}
+  .ticket-stub:before,.ticket-stub:after{content:"";position:absolute;left:-13px;width:24px;height:24px;border-radius:50%;background:var(--white);border:2px solid var(--glacier)}
+  .ticket-stub:before{top:-14px}
+  .ticket-stub:after{bottom:-14px}
+
+  /* programa: a subida */
+  .climb{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+  .climb h2{max-width:20ch}
+  .climb > .wrap > p{color:var(--glacier);font-size:1.1rem;margin-top:20px}
+  .profile{position:relative;margin:96px 0 0;aspect-ratio:1000/360}
+  .profile svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .mass{fill:var(--navy-2)}
+  .trail{fill:none;stroke:var(--gold);stroke-width:3;stroke-dasharray:6 8;stroke-linecap:round}
+  .camp{position:absolute;transform:translate(-50%,calc(-100% + 17px));display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;color:var(--white);cursor:pointer;padding:6px;font:inherit}
+  .camp .dot{width:22px;height:22px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);transition:transform .2s,background .2s}
+  .camp .lv{font:800 1.35rem/1 var(--display);letter-spacing:-.02em}
+  .camp .nm{font-size:.82rem;color:var(--glacier);font-weight:600;white-space:nowrap}
+  .camp:hover .dot{transform:scale(1.2)}
+  .camp[aria-selected="true"] .dot{background:var(--gold);transform:scale(1.25)}
+  .camp[aria-selected="true"] .lv{color:var(--gold-soft)}
+  .panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;margin-top:40px;padding:40px 44px;background:var(--navy-2);border-radius:18px;min-height:250px}
+  .panel h3{font-size:2.2rem;letter-spacing:-.03em}
+  .panel .tag{color:var(--gold-soft);font-weight:700;margin-top:10px}
+  .panel .desc{color:var(--glacier);margin-top:16px}
+  .panel ul{list-style:none;margin:0;padding:0}
+  .panel li{position:relative;padding:12px 0 12px 36px;border-bottom:1px solid rgba(217,227,238,.14);font-size:1.05rem}
+  .panel li:last-child{border-bottom:0}
+  .panel li:before{content:"";position:absolute;left:4px;top:19px;width:14px;height:8px;border-left:3px solid var(--gold);border-bottom:3px solid var(--gold);transform:rotate(-45deg)}
+  .panel .canhead{font:700 .95rem/1 var(--body);color:var(--gold-soft);margin-bottom:6px}
+  .panel[data-swap] > *{animation:swap .35s ease}
+  @keyframes swap{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* passo a passo */
+  .steps{counter-reset:s;list-style:none;margin:80px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+  .steps li{counter-increment:s;border-top:2px solid var(--gold);padding-top:18px}
+  .steps li:before{content:counter(s);display:block;font:800 2.6rem/1 var(--display);color:var(--gold-soft);margin-bottom:14px}
+  .steps h3{font-size:1.2rem;margin-bottom:8px;letter-spacing:-.01em}
+  .steps p{color:var(--glacier);font-size:.97rem;margin:0}
+  .steps-title{margin-top:96px;font:700 clamp(1.5rem,2.6vw,2rem)/1.15 var(--display);letter-spacing:-.02em}
+
+  /* fechamento */
+  .final{text-align:center;padding:120px 0 96px}
+  .final h2{margin:0 auto;max-width:16ch;font-size:clamp(2.3rem,5vw,3.8rem)}
+  .final p{margin:22px auto 36px;color:var(--slate);font-size:1.15rem;max-width:46ch}
+  .final .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  footer{border-top:1px solid var(--glacier);padding:28px 0;color:var(--slate);font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer .sot{font:400 1.6rem/1 'Allura',cursive;color:var(--gold)}
+
+  /* responsivo */
+  @media (max-width:980px){
+    .top nav{display:none}
+    .hero .wrap,.split,.teacher .split,.method header,.panel{grid-template-columns:1fr}
+    .hero-copy{padding-bottom:0}
+    .peak{justify-self:center;width:min(100%,420px)}
+    .split,.method header{gap:40px}
+    .routes{grid-template-columns:1fr}
+    .wrap.formats{grid-template-columns:1fr;gap:32px;margin-top:64px}
+    .route.main{grid-row:auto}
+    .ticket{grid-template-columns:1fr}
+    .ticket-stub{border-left:0;border-top:2px dashed var(--glacier);order:-1;height:268px;overflow:hidden}
+    .ticket-stub img{max-width:260px}
+    .ticket-stub:before,.ticket-stub:after{display:none}
+    .principle,.principle.wide{grid-column:span 6}
+    .steps{grid-template-columns:1fr 1fr}
+    .panel{gap:28px;padding:32px 28px}
+  }
+  @media (max-width:640px){
+    body{font-size:1rem}
+    .wrap{padding:0 16px}
+    section{padding:80px 0}
+    .brand span{display:none}
+    .top .btn{font-size:.85rem}
+    .hero{padding-top:40px}
+    .hero .lead{font-size:1.1rem}
+    .bubble{font-size:.85rem;left:50%}
+    .steps{grid-template-columns:1fr}
+    .wrap.formats{width:calc(100% - 32px)}
+    .modes{grid-template-columns:1fr;gap:20px}
+    .camp .nm{display:none}
+    .ticket-main{grid-template-columns:1fr;gap:20px;padding:32px 24px 28px}
+    .sg-logo{width:96px}
+    .camp .lv{font-size:1.05rem}
+    .camp .dot{width:18px;height:18px}
+    .panel h3{font-size:1.8rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*:before,*:after{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="English on Top, início">
+      <img src="assets/logo.png" alt="" width="45" height="52">
+      <span>English on Top<small>Fluency Mentoring</small></span>
+    </a>
+    <nav aria-label="Seções">
+      <a href="#escola">A escola</a>
+      <a href="#teacher">Quem sou eu</a>
+      <a href="#cursos">Os cursos</a>
+      <a href="#metodo">O método</a>
+      <a href="#programa">O programa</a>
+    </nav>
+    <a class="btn btn-gold" href="https://forms.gle/Y4kGLUCBb3M19W4BA" target="_blank" rel="noopener">Quero conhecer a mentoria</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-t">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 id="hero-t">Fale inglês sem decorar regras chatas.</h1>
+        <p class="lead">Eu sou a Teacher Renata e, há 25 anos, ajudo pessoas como você a falar inglês de verdade. Aqui você tem aulas ao vivo e eu acompanho cada passo da sua subida.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="https://forms.gle/Y4kGLUCBb3M19W4BA" target="_blank" rel="noopener">Quero conhecer a mentoria</a>
+          <a class="btn btn-line" href="https://api.whatsapp.com/send?phone=5516991459223" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></svg>
+            Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="peak">
+        <img src="assets/renata.jpg" alt="Teacher Renata Bettarello sorrindo em frente a uma estante com caixas decoradas de Londres" width="900" height="1350">
+        <span class="bubble" aria-hidden="true">See you on top!</span>
+      </div>
+    </div>
+    <svg class="ridge" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140V96l140-38 90 26 170-70 120 52 110-34 160 64 140-50 120 30 170-58 220 72v50Z"/></svg>
+  </section>
+
+  <section class="intro" id="escola" aria-labelledby="escola-t">
+    <div class="wrap split">
+      <div>
+        <h2 id="escola-t">Aqui você não estuda sozinho(a).</h2>
+        <p class="big">O English on Top é a minha mentoria de fluência. Eu caminho junto com você: mostro o caminho, corrijo a rota e comemoro cada conquista. Mas cada passo da subida é seu, e é isso que faz a fluência ser sua de verdade.</p>
+      </div>
+      <ul class="kit" aria-label="O que você recebe">
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="7" width="20" height="16" rx="3"/><path d="m23 13 6-4v14l-6-4"/><circle cx="13" cy="14" r="3"/><path d="M8 21c1-2.5 3-3.5 5-3.5s4 1 5 3.5"/></svg>
+          <div><h3>Aulas ao vivo</h3><p>Você vai ter aula comigo ou com um(a) teacher da minha equipe, que eu treino pessoalmente no meu método. Você fala, pergunta e arrisca, e a gente corrige na hora, olhando para você. Por isso eu peço câmera ligada: pronúncia também se vê.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h9a3 3 0 0 1 3 3v17a2 2 0 0 0-2-2H5Z"/><path d="M27 6h-7a3 3 0 0 0-3 3v17a2 2 0 0 1 2-2h8Z"/></svg>
+          <div><h3>Grammar on Top, do A1 ao C2, e planner de estudos</h3><p>Eu escrevi um guia de gramática para cada nível, com explicação em português nos primeiros níveis, mapas mentais, exercícios e atividades de fala. Junto vem um planner de estudos, para você saber o que fazer entre uma aula e outra e nunca se sentir perdido(a) nem sozinho(a).</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><circle cx="16" cy="16" r="2"/></svg>
+          <div><h3>Teste de nivelamento</h3><p>Antes de começar, eu quero saber de onde você parte. Assim você não perde tempo com o que já sabe.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h13l5 5v19H8Z"/><path d="M21 4v5h5M12 15h10M12 20h10M12 25h6"/></svg>
+          <div><h3>Manual do aluno</h3><p>Nele eu te ensino a estudar mesmo com a rotina corrida, com roteiros de 15 e 30 minutos por dia. E é ali que você registra as suas metas e o seu plano da semana.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="wrap formats">
+      <div>
+        <h3>Online, híbrido ou presencial: você escolhe.</h3>
+        <p>O meu foco é o online, para você estudar comigo de onde estiver. Mas, se você mora perto de Franca (SP), também pode ter aulas na Twin English School, a escola que eu cofundei.</p>
+      </div>
+      <ul class="modes" aria-label="Formatos de aula">
+        <li class="on"><h4>Online</h4><p>Aulas ao vivo de qualquer lugar do Brasil ou do mundo. Você só precisa de internet e câmera.</p></li>
+        <li><h4>Híbrido</h4><p>Parte das aulas na escola, parte online, do jeito que encaixa na sua semana.</p></li>
+        <li><h4>Presencial</h4><p>Todas as aulas na Twin English School, em Franca (SP).</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="teacher" id="teacher" aria-labelledby="teacher-t">
+    <div class="wrap split">
+      <blockquote class="quote">
+        <p>O inglês não é o destino. É a ponte para onde você quer chegar.</p>
+        <cite>Teacher Renata, no Manual do Aluno</cite>
+      </blockquote>
+      <div class="copy">
+        <h2 id="teacher-t">Muito prazer, eu sou a Teacher Renata Bettarello.</h2>
+        <p>Há 25 anos eu ensino inglês, e há 25 anos vejo a mesma coisa: quem trava não tem falta de capacidade. Tem falta do jeito certo de estudar. Pode acreditar: inglês é mais fácil do que você pensa.</p>
+        <p>Sou cofundadora da Twin English School, em Franca (SP), e criei o English on Top para acompanhar de perto quem quer falar o inglês da vida real, em viagens, no trabalho e no dia a dia.</p>
+        <p>Também treino pessoalmente cada teacher da minha equipe no meu método. Então, seja comigo ou com alguém do meu time, você aprende do mesmo jeito. Seja muito bem-vindo(a). Você está no lugar certo.</p>
+        <div class="sign" aria-hidden="true">Teacher Renata</div>
+        <a class="ig" href="https://www.instagram.com/teacherrenatabettarello/" target="_blank" rel="noopener">Me acompanhe no Instagram: @teacherrenatabettarello</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="courses" id="cursos" aria-labelledby="cursos-t">
+    <div class="wrap">
+      <h2 id="cursos-t">Qual é o seu objetivo? Eu tenho um caminho para ele.</h2>
+      <div class="routes">
+        <article class="route main">
+          <h3>Inglês geral</h3>
+          <p class="lv-range">Do A1 ao C2</p>
+          <p>Se você quer falar inglês com segurança no dia a dia, em viagens e no trabalho, é aqui que a gente começa. Você entra no seu nível e sobe um de cada vez, do primeiro "Hello" até a proficiência.</p>
+          <a class="more" href="#programa">Veja o que você aprende em cada nível</a>
+        </article>
+        <article class="route">
+          <h3>Exames de Cambridge</h3>
+          <p>Vai fazer uma prova de proficiência de Cambridge? Eu te preparo para cada parte do exame: reading, writing, listening e speaking.</p>
+        </article>
+        <article class="route">
+          <h3>Business English</h3>
+          <p>Precisa do inglês no trabalho? A gente treina reuniões, apresentações, e-mails e conversas com clientes e equipes de fora.</p>
+        </article>
+      </div>
+
+      <article class="ticket" aria-labelledby="sg-t">
+        <div class="ticket-main">
+          <img class="sg-logo" src="assets/speak-go-logo.png" alt="Speak & Go, by Renata Bettarello" width="283" height="306" loading="lazy">
+          <div>
+            <h3 id="sg-t">Vai viajar? Conheça o Speak &amp; Go.</h3>
+            <p>É o meu curso gravado de inglês para viagens. Do aeroporto ao hotel, do restaurante ao passeio, eu te ensino as expressões que você vai usar de verdade, para você se comunicar com confiança e aproveitar cada momento.</p>
+            <a class="btn btn-sg" href="https://speakandgo.com.br" target="_blank" rel="noopener">Conhecer o Speak &amp; Go</a>
+          </div>
+        </div>
+        <div class="ticket-stub">
+          <img src="assets/renata-speak-go.png" alt="Teacher Renata apontando para quem vê a página, apoiada em uma mala de viagem" width="620" height="623" loading="lazy">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="method" id="metodo" aria-labelledby="metodo-t">
+    <div class="wrap">
+      <header>
+        <h2 id="metodo-t">Inglês é mais fácil com o método certo.</h2>
+        <p>Comigo você não decora listas de regras. Você aprende o inglês como ele é usado de verdade e treina até ele sair naturalmente.</p>
+      </header>
+      <div class="principles">
+        <article class="principle wide">
+          <h3>Padrões, não regras chatas</h3>
+          <p>Eu te ensino a perceber como o inglês funciona dentro de frases reais (é o que eu chamo de noticing the language). Quando você enxerga o padrão, não precisa decorar a regra.</p>
+        </article>
+        <article class="principle wide">
+          <h3>O inglês da vida real</h3>
+          <p>Você aprende várias maneiras de dizer a mesma coisa, e quando usar cada uma. É isso que faz a conversa fluir, em vez de você traduzir palavra por palavra na cabeça.</p>
+        </article>
+        <article class="principle">
+          <h3>Feedback feito para você</h3>
+          <p>A sua pronúncia melhora com uma correção feita para você, na hora, em cima do que você acabou de falar.</p>
+        </article>
+        <article class="principle">
+          <h3>Errar é bem-vindo</h3>
+          <p>Na minha aula, errar é bem-vindo. Cada erro me mostra exatamente o que a gente precisa treinar. Fale primeiro, a gente ajusta depois.</p>
+        </article>
+        <article class="principle">
+          <h3>Pouco, mas todo dia</h3>
+          <p>15 minutos por dia rendem mais do que 2 horas uma vez por semana. Eu te mostro como: 5 para revisar, 5 para praticar e 5 para falar em voz alta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="climb on-dark" id="programa" aria-labelledby="programa-t">
+    <div class="wrap">
+      <h2 id="programa-t">No inglês geral, a gente sobe um nível de cada vez.</h2>
+      <p>Você começa no seu nível e vai até onde quiser chegar, do A1 ao C2. Toque em cada nível e veja o que você vai conseguir fazer em inglês.</p>
+
+      <div class="profile">
+        <svg viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+          <path class="mass" d="M0 360V332L70 318 140 326 220 282 300 296 390 232 460 250 560 178 620 196 730 120 790 140 900 50 950 84 1000 74V360Z"/>
+          <path class="trail" d="M50 320C120 316 170 298 220 272S340 236 390 222 500 190 560 168 680 128 730 110 860 62 900 40"/>
+        </svg>
+        <div role="tablist" aria-label="Níveis do programa">
+          <button class="camp" role="tab" id="tab-a1" aria-controls="panel" aria-selected="true" data-level="a1" style="left:5%;top:88.9%"><span class="lv">A1</span><span class="nm">Beginner</span><span class="dot"></span></button>
+          <button class="camp" role="tab" id="tab-a2" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="a2" style="left:22%;top:75.6%"><span class="lv">A2</span><span class="nm">Elementary</span><span class="dot"></span></button>
+          <button class="camp" role="tab" id="tab-b1" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="b1" style="left:39%;top:61.7%"><span class="lv">B1</span><span class="nm">Intermediate</span><span class="dot"></span></button>
+          <button class="camp" role="tab" id="tab-b2" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="b2" style="left:56%;top:46.7%"><span class="lv">B2</span><span class="nm">Upper-Intermediate</span><span class="dot"></span></button>
+          <button class="camp" role="tab" id="tab-c1" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="c1" style="left:73%;top:30.6%"><span class="lv">C1</span><span class="nm">Advanced</span><span class="dot"></span></button>
+          <button class="camp" role="tab" id="tab-c2" aria-controls="panel" aria-selected="false" tabindex="-1" data-level="c2" style="left:90%;top:11.1%"><span class="lv">C2</span><span class="nm">Proficiency</span><span class="dot"></span></button>
+        </div>
+      </div>
+
+      <div class="panel" id="panel" role="tabpanel" aria-labelledby="tab-a1" aria-live="polite">
+        <div>
+          <h3 data-f="title">A1 Beginner</h3>
+          <p class="tag" data-f="tag">Os primeiros passos</p>
+          <p class="desc" data-f="desc">Para quem está começando do zero ou quer recomeçar com a base certa.</p>
+        </div>
+        <div>
+          <p class="canhead">Ao fim deste nível, você consegue:</p>
+          <ul data-f="list"></ul>
+        </div>
+      </div>
+
+      <h3 class="steps-title">Como a gente sobe junto</h3>
+      <ol class="steps">
+        <li><h3>Ponto de partida</h3><p>Você faz o teste de nivelamento, com gramática, vocabulário e escrita, e eu descubro em que nível você começa.</p></li>
+        <li><h3>Metas e plano</h3><p>Com o manual e o planner, você define o seu grande porquê, as metas para 3, 6 e 12 meses e a sua semana de estudos.</p></li>
+        <li><h3>Aulas ao vivo</h3><p>Comigo ou com um(a) teacher que eu treinei, você conversa, pratica e recebe correção na hora.</p></li>
+        <li><h3>Entre as aulas</h3><p>Com o Grammar on Top e 15 minutos por dia, você revisa a aula em até 24 horas e transforma o que viu em algo que você sabe.</p></li>
+        <li><h3>Próximo nível</h3><p>A cada "I can…" conquistado, eu comemoro com você. Quando o nível estiver firme, a gente sobe para o próximo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-t">
+    <div class="wrap">
+      <h2 id="final-t">Vamos juntos até o topo?</h2>
+      <p>Me conte o seu objetivo pelo formulário e eu te explico como a mentoria funciona para o seu momento. Se preferir, me chame no WhatsApp.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="https://forms.gle/Y4kGLUCBb3M19W4BA" target="_blank" rel="noopener">Quero conhecer a mentoria</a>
+        <a class="btn btn-line" href="https://api.whatsapp.com/send?phone=5516991459223" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>English on Top, mentoria de fluência da Teacher Renata Bettarello</span>
+    <span class="sot">See you on top!</span>
+  </div>
+</footer>
+
+<script>
+  const levels = {
+    a1: { title: 'A1 Beginner', tag: 'Os primeiros passos',
+      desc: 'Para quem está começando do zero ou quer recomeçar com a base certa.',
+      list: ['Me apresentar: nome, idade e nacionalidade', 'Dizer que não entendi e pedir para repetir mais devagar', 'Apontar objetos e perguntar "What\'s this?"', 'Dizer o que é meu, seu, dele e dela'] },
+    a2: { title: 'A2 Elementary', tag: 'O dia a dia em inglês',
+      desc: 'Você sai das frases soltas e começa a falar da sua vida.',
+      list: ['Falar da minha rotina e dos meus hábitos', 'Contar como foi o meu fim de semana', 'Comparar duas coisas e dizer qual é a melhor', 'Descrever o que estava acontecendo num momento do passado'] },
+    b1: { title: 'B1 Intermediate', tag: 'Conversas de verdade',
+      desc: 'O inglês começa a fluir: você conta histórias e faz planos.',
+      list: ['Falar de experiências e novidades recentes', 'Usar for e since sem confusão', 'Fazer previsões, promessas e planos', 'Contar histórias com mais detalhes'] },
+    b2: { title: 'B2 Upper-Intermediate', tag: 'Segurança para se expressar',
+      desc: 'Você escolhe as palavras com precisão, inclusive no trabalho.',
+      list: ['Contar uma história com começo, meio e fim bem amarrados', 'Falar do que vai estar concluído no futuro', 'Expressar desejos e arrependimentos', 'Criar condições sem usar if'] },
+    c1: { title: 'C1 Advanced', tag: 'Inglês com naturalidade',
+      desc: 'Você ajusta o tom de acordo com a situação, do formal ao descontraído.',
+      list: ['Escolher entre inglês formal e informal', 'Dar ênfase com estruturas avançadas', 'Expressar graus precisos de certeza', 'Usar os tempos verbais para mostrar o meu ponto de vista'] },
+    c2: { title: 'C2 Proficiency', tag: 'O topo',
+      desc: 'O nível mais alto do Quadro Europeu: você usa o inglês como se fosse a sua língua.',
+      list: ['Entender praticamente tudo o que ouço e leio, sem esforço', 'Expressar diferenças sutis de sentido com precisão', 'Resumir e argumentar a partir de fontes diferentes', 'Usar o inglês com naturalidade em qualquer situação, pessoal ou profissional'] }
+  };
+  const tabs = [...document.querySelectorAll('.camp')];
+  const panel = document.getElementById('panel');
+  const f = n => panel.querySelector(`[data-f="${n}"]`);
+
+  function show(tab, focus) {
+    const d = levels[tab.dataset.level];
+    tabs.forEach(t => { const on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    panel.setAttribute('aria-labelledby', tab.id);
+    f('title').textContent = d.title;
+    f('tag').textContent = d.tag;
+    f('desc').textContent = d.desc;
+    f('list').replaceChildren(...d.list.map(t => Object.assign(document.createElement('li'), { textContent: t })));
+    panel.removeAttribute('data-swap'); void panel.offsetWidth; panel.setAttribute('data-swap', '');
+    if (focus) tab.focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(t));
+    t.addEventListener('keydown', e => {
+      const k = { ArrowRight: 1, ArrowUp: 1, ArrowLeft: -1, ArrowDown: -1 }[e.key];
+      if (k) { e.preventDefault(); show(tabs[(i + k + tabs.length) % tabs.length], true); }
+    });
+  });
+  show(tabs[0]);
+  panel.removeAttribute('data-swap');
+</script>
+</body>
+</html>
