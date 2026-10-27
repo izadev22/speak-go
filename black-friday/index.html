@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Friday Speak &amp; Go — Grupo VIP</title>
+<meta name="description" content="Aula gratuita ao vivo em 07/11 e oferta de Black Friday do Speak & Go, o curso de inglês para viagens da Teacher Renata Bettarello. Entre no grupo VIP do WhatsApp.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #04214A;
+    --night-deep: #02142F;
+    --ink: #032F6B;
+    --ink-soft: #3C5A82;
+    --sky: #50C0FF;
+    --sky-pale: #EEF6FD;
+    --red: #E31C2F;
+    --red-deep: #B8121F;
+    --amber: #FFC94A;
+    --white: #FFFFFF;
+    --flap: #0A2B5C;
+    --display: "Space Grotesk", system-ui, sans-serif;
+    --body: "Inter", system-ui, sans-serif;
+    --board: "Space Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 1.25rem; }
+  p + p { margin-top: 1rem; }
+
+  /* ---------- Botão principal ---------- */
+  .cta {
+    display: inline-flex; align-items: center; gap: .7rem;
+    background: var(--red); color: var(--white);
+    font-family: var(--display); font-weight: 700; font-size: 1.125rem;
+    text-decoration: none; padding: 1.05rem 1.6rem; border-radius: 999px;
+    box-shadow: 0 6px 0 var(--red-deep);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .cta:hover { transform: translateY(2px); box-shadow: 0 4px 0 var(--red-deep); }
+  .cta:active { transform: translateY(6px); box-shadow: 0 0 0 var(--red-deep); }
+  .cta svg { width: 1.4em; height: 1.4em; flex: none; }
+  .cta-note { font-size: .95rem; margin-top: 1rem; max-width: 38ch; }
+  .cta-note .urgent { display: block; margin-top: .35rem; color: var(--amber); font-weight: 600; }
+  .final .cta-note .urgent { margin: 0 0 .35rem; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: radial-gradient(120% 80% at 80% 0%, #0B3A7A 0%, var(--night) 55%, var(--night-deep) 100%);
+    color: var(--white);
+    overflow: hidden;
+  }
+  .hero-top { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+  .brand img { width: 56px; height: 56px; border-radius: 50%; background: var(--white); object-fit: cover; }
+  .brand span { font-family: var(--display); font-weight: 700; font-size: 1.2rem; }
+  .bf-tag {
+    font-family: var(--board); font-size: .85rem; font-weight: 700;
+    color: var(--night-deep); background: var(--amber);
+    padding: .3rem .65rem; border-radius: 4px;
+  }
+
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 2rem;
+    padding-top: 2.5rem;
+  }
+  .hero-copy { padding-bottom: 3rem; }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.6vw, 4.25rem); font-weight: 700;
+    max-width: 15ch; margin-bottom: 1.25rem;
+  }
+  .hero-lead { font-size: 1.2rem; max-width: 40ch; color: #D4E6FA; margin-bottom: 2rem; }
+  .hero .cta-note { color: #A9C4E4; }
+  .hero-photo { align-self: center; justify-self: center; width: min(100%, 460px); padding-bottom: 3rem; }
+  .hero-photo img { width: 100%; height: auto; }
+
+  /* ---------- Painel de partidas ---------- */
+  .board-zone { background: var(--night-deep); padding: 2.75rem 0 3.25rem; color: var(--white); }
+  .board {
+    background: #01102A; border-radius: 14px; padding: 1.25rem 1.25rem 1.5rem;
+    border: 1px solid #12305E;
+    box-shadow: inset 0 0 0 6px #061A3A;
+  }
+  .board-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    font-family: var(--display); font-weight: 600; color: var(--sky);
+    padding: 0 .25rem .9rem; border-bottom: 1px solid #12305E; margin-bottom: .6rem;
+  }
+  .board-head strong { font-size: 1.15rem; color: var(--white); }
+  .board-head small { font-family: var(--board); font-size: .85rem; }
+  .board table { width: 100%; border-collapse: separate; border-spacing: 0 .4rem; }
+  .board th {
+    font-family: var(--body); font-weight: 500; font-size: .8rem; color: #7FA3CF;
+    text-align: left; padding: 0 .5rem .1rem;
+  }
+  .board td { padding: 0 .5rem; vertical-align: middle; }
+  .flaps { display: inline-flex; gap: 2px; font-family: var(--board); font-weight: 700; }
+  .flaps .c {
+    display: inline-grid; place-items: center;
+    width: 1.35em; height: 1.75em; font-size: clamp(.8rem, 1.5vw, 1.05rem);
+    background: linear-gradient(var(--flap) 0 49%, #06204A 49% 51%, var(--flap) 51%);
+    color: #F2F6FC; border-radius: 3px;
+  }
+  .status-ok .flaps .c { color: #7CE2A0; }
+  .status-soon .flaps .c { color: var(--amber); }
+  tr.bf td { padding-top: .35rem; }
+  tr.bf .flaps .c { background: linear-gradient(#5E0C14 0 49%, #3E060C 49% 51%, #5E0C14 51%); }
+  tr.bf .dest .flaps .c { color: var(--white); }
+  .col-time, .col-flight { white-space: nowrap; }
+
+  .countdown {
+    display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.5rem 2rem;
+    margin-top: 1.75rem; padding: 1.25rem 1.25rem 0; border-top: 1px dashed #1D3F70;
+  }
+  .countdown-label { font-family: var(--display); font-size: 1.25rem; font-weight: 600; max-width: 14ch; line-height: 1.25; }
+  .units { display: flex; gap: clamp(.5rem, 2vw, 1.25rem); flex-wrap: wrap; }
+  .unit { text-align: center; }
+  .unit .flaps .c {
+    width: clamp(2.1rem, 5vw, 3.4rem); height: clamp(2.9rem, 7vw, 4.6rem);
+    font-size: clamp(1.6rem, 4.2vw, 2.8rem); color: var(--amber);
+  }
+  .unit .flaps .c.tick { animation: flip .32s ease-out; }
+  .unit small { display: block; font-size: .85rem; color: #A9C4E4; margin-top: .4rem; }
+  @keyframes flip {
+    0% { transform: rotateX(70deg); filter: brightness(.5); }
+    100% { transform: rotateX(0); filter: none; }
+  }
+  .js-countdown[hidden] { display: none; }
+
+  .final-count { margin: 0 0 2rem; }
+  .final .final-count-label { font-family: var(--display); font-weight: 600; font-size: 1.1rem; margin-bottom: .6rem; color: var(--white); }
+  .final-count .unit .flaps .c {
+    width: clamp(1.8rem, 3.6vw, 2.6rem); height: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(1.4rem, 3vw, 2.1rem);
+    background: linear-gradient(var(--flap) 0 49%, #06204A 49% 51%, var(--flap) 51%);
+  }
+  .final-count .units { justify-content: flex-start; }
+
+  /* ---------- Seções claras ---------- */
+  .section { padding: clamp(4rem, 9vw, 6.5rem) 0; }
+  .section-alt { background: var(--sky-pale); }
+
+  /* Checklist */
+  .prep { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .prep-text p { max-width: 52ch; color: var(--ink-soft); }
+  .prep-text p strong { color: var(--ink); }
+  .checklist {
+    list-style: none; background: var(--white); border-radius: 18px;
+    padding: 1.75rem 1.75rem 1.5rem; box-shadow: 0 18px 40px -24px rgba(3, 47, 107, .45);
+    border: 1px solid #D6E6F6;
+  }
+  .checklist-title { font-family: var(--display); font-weight: 700; font-size: 1.15rem; margin-bottom: 1rem; }
+  .checklist li {
+    display: flex; align-items: center; gap: .9rem; padding: .8rem 0;
+    border-bottom: 1px solid #E4EEF8; font-size: 1.1rem;
+  }
+  .checklist li:last-child { border-bottom: 0; }
+  .box {
+    flex: none; width: 1.6rem; height: 1.6rem; border-radius: 6px;
+    display: grid; place-items: center; border: 2px solid var(--ink);
+  }
+  .done .box { background: var(--ink); color: var(--white); }
+  .done span:last-child { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: rgba(3,47,107,.35); }
+  .pending { font-weight: 700; color: var(--red); }
+  .pending .box { border-color: var(--red); border-style: dashed; }
+
+  /* Roteiro */
+  .route-head { max-width: 640px; margin-bottom: 3rem; }
+  .route-head p { color: var(--ink-soft); }
+  .route { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 2rem; position: relative; }
+  .route li { position: relative; padding-top: 1.6rem; border-top: 3px dotted var(--sky); }
+  .route li::before {
+    content: ""; position: absolute; top: -10px; left: 0;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--white); border: 4px solid var(--ink);
+  }
+  .route li:last-child::before { background: var(--red); border-color: var(--red); }
+  .route .place { font-family: var(--board); font-size: .85rem; color: var(--sky-deep, #0B72BE); margin-bottom: .35rem; display: block; }
+  .route h3 { font-size: 1.3rem; font-weight: 600; max-width: 22ch; }
+  .route-cta { margin-top: 3.5rem; }
+
+  /* Oportunidade */
+  .offer { background: var(--ink); color: var(--white); }
+  .offer-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .offer-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; border-radius: 18px; }
+  .offer p { color: #D4E6FA; max-width: 50ch; font-size: 1.15rem; }
+  .pass {
+    margin-top: 1.75rem; max-width: 30rem;
+    background: var(--white); color: var(--ink); border-radius: 14px;
+    padding: 1.1rem 1.25rem 1.2rem;
+    border-left: 10px solid var(--red);
+    background-image: radial-gradient(circle at 100% 50%, var(--ink) 0 12px, transparent 13px);
+  }
+  .offer .pass-title { font-family: var(--display); font-weight: 700; font-size: 1.25rem; color: var(--ink); margin-bottom: .75rem; }
+  .pass-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 1.25rem; }
+  .pass-fields dt { font-size: .8rem; color: var(--ink-soft); }
+  .pass-fields dd { font-family: var(--board); font-weight: 700; font-size: 1rem; }
+  .perks-title { font-size: 1.3rem; font-weight: 600; margin: 2.25rem 0 1rem; color: var(--amber); }
+  .perks { list-style: none; display: grid; gap: .85rem; max-width: 50ch; }
+  .perks li {
+    position: relative; padding-left: 2.1rem; color: #D4E6FA; font-size: 1.05rem;
+  }
+  .perks li::before {
+    content: "✓"; position: absolute; left: 0; top: .1rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50%; display: grid; place-items: center;
+    background: var(--amber); color: var(--night-deep); font-size: .8rem; font-weight: 700;
+  }
+  .perks strong { color: var(--white); }
+
+  /* Professora */
+  .teacher-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+  .teacher-name { font-family: var(--display); font-size: 1.15rem; color: var(--red); font-weight: 600; margin-bottom: .35rem; }
+  .teacher-text p { color: var(--ink-soft); max-width: 50ch; }
+  .facts { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; margin: 1.75rem 0 0; }
+  .facts li {
+    background: var(--sky-pale); border: 1px solid #CFE3F6; border-radius: 999px;
+    padding: .45rem 1rem; font-weight: 600; font-size: .95rem;
+  }
+  .teacher-photo { position: relative; }
+  .teacher-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 70%; border-radius: 18px; }
+  .stamp {
+    position: absolute; left: -18px; bottom: 28px; transform: rotate(-8deg);
+    font-family: var(--board); font-weight: 700; font-size: .85rem; line-height: 1.3; text-align: center;
+    color: var(--red); background: rgba(255,255,255,.92);
+    border: 3px double var(--red); border-radius: 10px; padding: .5rem .8rem;
+  }
+
+  /* Final */
+  .final {
+    background: radial-gradient(100% 90% at 20% 100%, #0B3A7A 0%, var(--night) 50%, var(--night-deep) 100%);
+    color: var(--white);
+  }
+  .final-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem, 6vw, 4rem); align-items: center; }
+  .final h2 { font-size: clamp(2rem, 4.6vw, 3.25rem); max-width: 16ch; }
+  .final p { color: #D4E6FA; max-width: 44ch; margin-bottom: 2rem; font-size: 1.15rem; }
+  .final .cta-note { color: #A9C4E4; }
+  .final-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 55% 22%; border-radius: 50%; border: 6px solid var(--sky); }
+
+  footer { background: var(--night-deep); color: #7FA3CF; font-size: .9rem; padding: 1.75rem 0 6rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+  /* Barra fixa no celular */
+  .sticky {
+    position: fixed; inset: auto 0 0 0; z-index: 10; display: none;
+    padding: .75rem 16px calc(.75rem + env(safe-area-inset-bottom));
+    background: rgba(2, 20, 47, .94); backdrop-filter: blur(6px);
+    transform: translateY(110%); transition: transform .25s ease;
+  }
+  .sticky.show { transform: none; }
+  .sticky .cta { width: 100%; justify-content: center; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .prep, .offer-grid, .teacher-grid, .final-grid { grid-template-columns: 1fr; }
+    .hero-copy { padding-bottom: 0; }
+    .hero-photo { width: min(80%, 360px); }
+    .route { grid-template-columns: 1fr 1fr; }
+    .offer-photo { order: 2; max-width: 380px; width: 100%; margin-inline: auto; }
+    .teacher-photo { max-width: 380px; width: 100%; margin-inline: auto; }
+    .final-photo { max-width: 260px; width: 100%; margin-inline: auto; }
+  }
+  @media (max-width: 640px) {
+    .brand img { width: 46px; height: 46px; }
+    .hero h1 { font-size: 2.35rem; }
+    .hero-lead { font-size: 1.08rem; }
+    .cta { width: 100%; justify-content: center; font-size: 1.05rem; }
+    .col-time, .col-flight { display: none; }
+    .board { padding: 1rem .6rem 1.25rem; }
+    .board td, .board th { padding-inline: .25rem; }
+    .board { overflow: hidden; }
+    .board .flaps { gap: 1px; }
+    .board td .flaps .c { width: 12px; height: 19px; font-size: .68rem; border-radius: 2px; }
+    .countdown { grid-template-columns: 1fr; padding-inline: .25rem; }
+    .countdown-label { max-width: none; }
+    .units { justify-content: space-between; }
+    .route { grid-template-columns: 1fr; gap: 2rem; }
+    .stamp { left: 10px; }
+    .sticky { display: block; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .unit .flaps .c.tick { animation: none; }
+    .cta, .sticky { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="whats" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.4 9.4 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43m8.03-17.46A11.3 11.3 0 0 0 12.05.72C5.79.72.7 5.8.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.3 11.3 0 0 0 5.43 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02"/></symbol>
+</svg>
+
+<header class="hero">
+  <div class="wrap hero-top">
+    <a class="brand" href="https://speak-go.vercel.app/" aria-label="Speak &amp; Go — voltar ao site">
+      <img src="assets/logo.png" alt="">
+      <span>Speak &amp; Go</span>
+    </a>
+    <span class="bf-tag">Black Friday 2026</span>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Sua próxima viagem merece mais do que inglês improvisado.</h1>
+      <p class="hero-lead">Prepare-se para viajar com mais confiança e aproveite uma condição especial para aprender o inglês que você realmente vai usar no exterior.</p>
+      <a class="cta js-cta" href="https://chat.whatsapp.com/KKNDw6Py5q68gACgrqBoL4?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#whats"/></svg>
+        Quero entrar no grupo VIP
+      </a>
+      <p class="cta-note">Entre no grupo do WhatsApp para receber o link da aula gratuita de 07/11, às 11h, onde a oferta da Black Friday será liberada. <strong class="urgent">Entre agora, antes que o grupo lote.</strong></p>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/renata-mala.png" alt="Teacher Renata apoiada em uma mala de viagem, apontando para você" width="960" height="964">
+    </div>
+  </div>
+</header>
+
+<section class="board-zone" aria-labelledby="board-title">
+  <div class="wrap">
+    <div class="board">
+      <div class="board-head">
+        <strong id="board-title">Partidas</strong>
+        <small>Terminal Speak &amp; Go</small>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="col-time" scope="col">Horário</th>
+            <th scope="col">Destino</th>
+            <th class="col-flight" scope="col">Voo</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-time"><span class="flaps" data-flap="08:40"></span></td>
+            <td><span class="flaps" data-flap="NEW YORK"></span></td>
+            <td class="col-flight"><span class="flaps" data-flap="SG101"></span></td>
+            <td class="status-ok"><span class="flaps" data-flap="NO HORARIO"></span></td>
+          </tr>
+          <tr>
+            <td class="col-time"><span class="flaps" data-flap="10:15"></span></td>
+            <td><span class="flaps" data-flap="LONDON"></span></td>
+            <td class="col-flight"><span class="flaps" data-flap="SG204"></span></td>
+            <td class="status-ok"><span class="flaps" data-flap="NO HORARIO"></span></td>
+          </tr>
+          <tr>
+            <td class="col-time"><span class="flaps" data-flap="13:30"></span></td>
+            <td><span class="flaps" data-flap="ORLANDO"></span></td>
+            <td class="col-flight"><span class="flaps" data-flap="SG318"></span></td>
+            <td class="status-ok"><span class="flaps" data-flap="NO HORARIO"></span></td>
+          </tr>
+          <tr class="bf">
+            <td class="col-time"><span class="flaps" data-flap="07/11"></span></td>
+            <td class="dest"><span class="flaps" data-flap="BLACK FRIDAY"></span></td>
+            <td class="col-flight"><span class="flaps" data-flap="SG2611"></span></td>
+            <td class="status-soon"><span class="flaps js-bf-status" data-flap="EM BREVE"></span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="countdown js-countdown">
+        <p class="countdown-label js-count-label">A aula gratuita com a oferta de Black Friday começa em</p>
+        <div class="units" role="timer" aria-live="off">
+          <div class="unit"><span class="flaps" data-unit="d"><span class="c">0</span><span class="c">0</span></span><small>dias</small></div>
+          <div class="unit"><span class="flaps" data-unit="h"><span class="c">0</span><span class="c">0</span></span><small>horas</small></div>
+          <div class="unit"><span class="flaps" data-unit="m"><span class="c">0</span><span class="c">0</span></span><small>minutos</small></div>
+          <div class="unit"><span class="flaps" data-unit="s"><span class="c">0</span><span class="c">0</span></span><small>segundos</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section" aria-labelledby="prep-title">
+    <div class="wrap prep">
+      <div class="prep-text">
+        <h2 id="prep-title">O inglês não pode ficar para a última hora!</h2>
+        <p>Você organiza as passagens, escolhe o hotel, planeja os passeios e prepara a mala. <strong>Mas e o inglês?</strong></p>
+        <p>Imagine chegar ao aeroporto, passar pela imigração, fazer o check-in no hotel, pedir sua comida favorita ou resolver um imprevisto sem depender de alguém para falar por você.</p>
+        <p>É para isso que existe o <strong>Speak &amp; Go</strong>, meu curso de inglês para viagens.</p>
+      </div>
+      <ul class="checklist" aria-label="Checklist da viagem">
+        <li class="checklist-title" aria-hidden="true">Checklist da viagem</li>
+        <li class="done"><span class="box" aria-hidden="true">✓</span><span>Passagens compradas</span></li>
+        <li class="done"><span class="box" aria-hidden="true">✓</span><span>Hotel reservado</span></li>
+        <li class="done"><span class="box" aria-hidden="true">✓</span><span>Passeios planejados</span></li>
+        <li class="done"><span class="box" aria-hidden="true">✓</span><span>Mala pronta</span></li>
+        <li class="pending"><span class="box" aria-hidden="true"></span><span>Inglês para a viagem<span class="sr-only"> (ainda não)</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="learn-title">
+    <div class="wrap">
+      <div class="route-head">
+        <h2 id="learn-title">O que você vai aprender?</h2>
+        <p>O inglês de cada etapa da viagem, do desembarque até a volta para casa.</p>
+      </div>
+      <ol class="route">
+        <li><span class="place">Aeroporto</span><h3>Comunicar-se no aeroporto e na imigração.</h3></li>
+        <li><span class="place">Hotel</span><h3>Fazer check-in e resolver situações no hotel.</h3></li>
+        <li><span class="place">Restaurante</span><h3>Pedir refeições em restaurantes.</h3></li>
+        <li><span class="place">Lojas e ruas</span><h3>Fazer compras e pedir informações.</h3></li>
+        <li><span class="place">Imprevistos</span><h3>Lidar com imprevistos durante a viagem.</h3></li>
+        <li><span class="place">A viagem inteira</span><h3>Falar com mais naturalidade e confiança.</h3></li>
+      </ol>
+      <div class="route-cta">
+        <a class="cta js-cta" href="https://chat.whatsapp.com/KKNDw6Py5q68gACgrqBoL4?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#whats"/></svg>
+          Quero entrar no grupo VIP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section offer" aria-labelledby="offer-title">
+    <div class="wrap offer-grid">
+      <div class="offer-photo">
+        <img src="assets/renata-celular.jpg" alt="Teacher Renata segurando o celular e o notebook" loading="lazy">
+      </div>
+      <div>
+        <h2 id="offer-title">Uma oportunidade especial está chegando!</h2>
+        <p>A Black Friday do Speak &amp; Go está chegando, e preparei uma condição especial para quem deseja começar a se preparar para a próxima viagem.</p>
+        <p>A condição será liberada ao vivo, durante uma aula gratuita. Entre no grupo VIP do WhatsApp para receber o link da aula e as informações da campanha.</p>
+
+        <div class="pass" aria-label="Aula gratuita ao vivo">
+          <p class="pass-title">Aula gratuita ao vivo</p>
+          <dl class="pass-fields">
+            <div><dt>Data</dt><dd>07/11, sábado</dd></div>
+            <div><dt>Horário</dt><dd>11h (Brasília)</dd></div>
+            <div><dt>Onde</dt><dd>Link no grupo VIP</dd></div>
+            <div><dt>Valor</dt><dd>Gratuita</dd></div>
+          </dl>
+        </div>
+
+        <!-- Textos provisórios: confirmar com a Renata o que ela vai entregar no grupo -->
+        <h3 class="perks-title">O que você recebe no grupo</h3>
+        <ul class="perks">
+          <li><strong>Link da aula gratuita</strong> do dia 07/11, com a condição especial de Black Friday liberada ao vivo.</li>
+          <li><strong>Material gratuito</strong> com as frases essenciais para o aeroporto e a imigração.</li>
+          <li><strong>Dicas de inglês para viagem</strong> da Teacher Renata, direto no seu WhatsApp.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="teacher-title">
+    <div class="wrap teacher-grid">
+      <div class="teacher-text">
+        <h2 id="teacher-title">Quem vai te ensinar?</h2>
+        <p class="teacher-name">Teacher Renata Bettarello</p>
+        <p>Sou professora de inglês há 25 anos, morei nos Estados Unidos por 7 anos e já ajudei mais de 2 mil alunos em sua jornada rumo à fluência.</p>
+        <p>Criei o Speak &amp; Go para ajudar você a aprender o inglês que realmente precisa para viajar.</p>
+        <ul class="facts">
+          <li>25 anos ensinando inglês</li>
+          <li>7 anos morando nos EUA</li>
+          <li>Mais de 2 mil alunos</li>
+        </ul>
+      </div>
+      <div class="teacher-photo">
+        <img src="assets/renata-globo.jpg" alt="Teacher Renata apontando para um globo terrestre" loading="lazy">
+        <span class="stamp" aria-hidden="true">USA<br>7 anos</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="section final" aria-labelledby="final-title">
+  <div class="wrap final-grid">
+    <div>
+      <h2 id="final-title">Garanta seu lugar na aula gratuita.</h2>
+      <p>O link da aula do dia 07/11, às 11h, e a condição de Black Friday serão enviados só no grupo VIP.</p>
+      <div class="final-count js-countdown">
+        <p class="final-count-label js-count-label">Faltam</p>
+        <div class="units" role="timer" aria-live="off">
+          <div class="unit"><span class="flaps" data-unit="d"><span class="c">0</span><span class="c">0</span></span><small>dias</small></div>
+          <div class="unit"><span class="flaps" data-unit="h"><span class="c">0</span><span class="c">0</span></span><small>horas</small></div>
+          <div class="unit"><span class="flaps" data-unit="m"><span class="c">0</span><span class="c">0</span></span><small>minutos</small></div>
+          <div class="unit"><span class="flaps" data-unit="s"><span class="c">0</span><span class="c">0</span></span><small>segundos</small></div>
+        </div>
+      </div>
+      <a class="cta js-cta" href="https://chat.whatsapp.com/KKNDw6Py5q68gACgrqBoL4?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#whats"/></svg>
+        Quero entrar no grupo VIP
+      </a>
+      <p class="cta-note"><strong class="urgent">As vagas no grupo são limitadas: entre antes que lote.</strong> É gratuito e você pode sair quando quiser.</p>
+    </div>
+    <div class="final-photo">
+      <img src="assets/renata-rosa.jpg" alt="Teacher Renata sorrindo, de braços cruzados" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Speak &amp; Go by Renata Bettarello</span>
+    <a href="https://speak-go.vercel.app/">Conheça o curso completo</a>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a class="cta" href="https://chat.whatsapp.com/KKNDw6Py5q68gACgrqBoL4?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">
+    <svg aria-hidden="true"><use href="#whats"/></svg>
+    Quero entrar no grupo VIP
+  </a>
+</div>
+
+<script>
+  // Início da aula gratuita ao vivo, onde a oferta é liberada: sábado, 07/11, às 11h (horário de Brasília).
+  // Para esconder os contadores, deixe vazio: const OFFER_OPENS = "";
+  const OFFER_OPENS = "2026-11-07T11:00:00-03:00";
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  // Painel de partidas: cada letra gira até parar no texto final (uma única vez, ao carregar)
+  function buildFlaps(el, text, animate) {
+    el.innerHTML = "";
+    el.setAttribute("aria-label", text);
+    [...text].forEach((ch, i) => {
+      const c = document.createElement("span");
+      c.className = "c";
+      c.setAttribute("aria-hidden", "true");
+      c.textContent = ch === " " ? " " : ch;
+      el.appendChild(c);
+      if (!animate || ch === " " || ch === ":" || ch === "/") return;
+      let spins = 6 + i * 2 + Math.floor(Math.random() * 5);
+      const timer = setInterval(() => {
+        if (--spins <= 0) { c.textContent = ch; clearInterval(timer); return; }
+        c.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+      }, 55);
+    });
+  }
+  document.querySelectorAll("[data-flap]").forEach((el, row) => {
+    setTimeout(() => buildFlaps(el, el.dataset.flap, !reduceMotion), reduceMotion ? 0 : row * 40);
+  });
+
+  // Contador regressivo
+  const countdowns = document.querySelectorAll(".js-countdown");
+  const target = OFFER_OPENS ? new Date(OFFER_OPENS).getTime() : NaN;
+  if (isNaN(target)) {
+    countdowns.forEach(el => el.hidden = true);
+  } else {
+    const units = { d: [], h: [], m: [], s: [] };
+    document.querySelectorAll(".js-countdown [data-unit]").forEach(el => units[el.dataset.unit].push(...el.querySelectorAll(".c")));
+    const set = (key, value) => {
+      const digits = String(Math.min(value, 99)).padStart(2, "0");
+      units[key].forEach((c, n) => {
+        const i = n % 2;
+        if (c.textContent === digits[i]) return;
+        c.textContent = digits[i];
+        if (!reduceMotion) { c.classList.remove("tick"); void c.offsetWidth; c.classList.add("tick"); }
+      });
+    };
+    const tick = () => {
+      const left = Math.max(0, target - Date.now());
+      const s = Math.floor(left / 1000);
+      set("d", Math.floor(s / 86400));
+      set("h", Math.floor(s / 3600) % 24);
+      set("m", Math.floor(s / 60) % 60);
+      set("s", s % 60);
+      if (left === 0) {
+        clearInterval(loop);
+        document.querySelectorAll(".js-count-label").forEach(el => el.textContent = "A aula começou! O link está no grupo VIP.");
+        buildFlaps(document.querySelector(".js-bf-status"), "EMBARQUE", false);
+      }
+    };
+    const loop = setInterval(tick, 1000);
+    tick();
+  }
+
+  // Barra fixa no celular: aparece depois do primeiro botão sair da tela
+  const sticky = document.getElementById("sticky");
+  const firstCta = document.querySelector(".js-cta");
+  const finalSection = document.querySelector(".final");
+  let pastFirst = false, atFinal = false;
+  const update = () => sticky.classList.toggle("show", pastFirst && !atFinal);
+  new IntersectionObserver(([e]) => { pastFirst = !e.isIntersecting && e.boundingClientRect.top < 0; update(); }).observe(firstCta);
+  new IntersectionObserver(([e]) => { atFinal = e.isIntersecting; update(); }).observe(finalSection);
+</script>
+</body>
+</html>
