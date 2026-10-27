@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/english-on-top", "destination": "https://english-on-top.vercel.app/", "permanent": true },
+    { "source": "/english-on-top/:path*", "destination": "https://english-on-top.vercel.app/:path*", "permanent": true }
+  ]
+}
