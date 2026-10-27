@@ -17,7 +17,8 @@ Redesign da landing page do curso **Speak & Go** (inglês para viagens), da Teac
     ├── logo.png                    # logo oficial Speak & Go
     ├── teacher-hero.png            # foto da Renata usada no hero (boarding pass)
     ├── teacher-about.jpg           # foto da Renata usada na seção "Conheça a Teacher"
-    ├── welcome-video-poster.jpg    # capa do vídeo de boas-vindas
+    ├── video-apresentacao-curso.mp4    # vídeo de apresentação do curso (seção #boas-vindas)
+    ├── video-apresentacao-poster.jpg   # capa do vídeo de apresentação
     ├── testimonial-iasmin.jpg      # foto real da depoente Iasmin
     └── testimonial-adriana.jpg     # foto real da depoente Adriana
 ```
@@ -70,11 +71,9 @@ Se algum desses links mudar no futuro, procure por eles no `index.html` (usa Ctr
 | WhatsApp | `https://wa.me/message/LBCAYCZMLCZON1` | Header, hero, seção da teacher, botão flutuante |
 | Instagram | `https://www.instagram.com/teacherrenatabettarello/` | Rodapé |
 
-## ⚠️ Nota sobre o vídeo de boas-vindas
+## Vídeo de apresentação
 
-O `<video>` da seção "Antes de embarcar" está apontando para o arquivo original, hospedado no CDN do site antigo (`speakandgo.com.br/_assets/video/...`). Isso funciona hoje, mas é uma dependência externa — se o site antigo sair do ar, o vídeo para de tocar.
-
-**Recomendado:** baixar esse vídeo e subir num host próprio (ex.: Vercel Blob, Cloudflare Stream, Bunny.net, YouTube não-listado) antes de considerar o projeto 100% independente do site antigo. Quando tiver a nova URL, é só trocar o `src` da tag `<source>` dentro da seção `#boas-vindas` no `index.html`.
+O `<video>` da seção "Antes de embarcar" (`#boas-vindas`) usa o arquivo local `assets/video-apresentacao-curso.mp4`, com a capa `assets/video-apresentacao-poster.jpg`. Para trocar o vídeo, substitua esses dois arquivos mantendo os nomes (ou ajuste os caminhos no `index.html`). Mantenha o vídeo abaixo de ~50 MB: o GitHub avisa a partir disso e bloqueia acima de 100 MB.
 
 ## Origem do conteúdo
 
